@@ -2,7 +2,7 @@
 
 import React, {useState} from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Constants from 'expo-constants';
+import {Focus} from './components/focus/focus';
 
 export default function App() {
 
@@ -15,7 +15,9 @@ export default function App() {
       return <Text>Put timer here later</Text>
     }
     else {
-      return <Text>Put input focus component here later</Text>
+      return (
+        <Focus/>
+      )
     }
   };
 
@@ -32,8 +34,7 @@ const styles = StyleSheet.create({
   
   container: {
     flex: 1,
-    alignItems: 'center',
-    padding: 60,
+    backgroundColor: '#1ed4b8',
   },
 
 });
