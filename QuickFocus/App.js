@@ -7,16 +7,15 @@ import {Focus} from './components/focus/focus';
 export default function App() {
 
   // states
-  const [focus,setfocus] = useState(null);
-
+  const [currFocus,setCurrFocus] = useState(null);
   // functions
-  const renderElement = (focus) => {
-    if (focus) {
+  const renderElement = (currFocus) => {
+    if (currFocus) {
       return <Text>Put timer here later</Text>
     }
     else {
       return (
-        <Focus/>
+        <Focus setCurrFocus={setCurrFocus}/>
       )
     }
   };
@@ -24,7 +23,8 @@ export default function App() {
   // rendered app
   return (
     <View style={styles.container}>
-      {renderElement(focus)}
+      {renderElement(currFocus)}
+      <Text>{currFocus}</Text>
     </View>
   );
 }
@@ -38,3 +38,4 @@ const styles = StyleSheet.create({
   },
 
 });
+

@@ -3,15 +3,31 @@ import { View, Text, StyleSheet } from 'react-native';
 import {TextInput} from 'react-native-paper';
 import {AddFocus} from '../add-focus/add-focus';
  
-export const Focus = () => {
+export const Focus = ({setCurrFocus}) => {
+
+  const [tempItem,setTempItem] = useState(null);
 
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
         <Text style={styles.title}>Please Enter a Temporary Focus ⌚</Text>
         <View style={styles.inputContainer}>
-          <TextInput style={styles.input}/>
-          <AddFocus size={50} title={'+'}/>
+          <TextInput 
+            style={styles.input}
+            onChangeText={
+              (text) => setTempItem(text)
+            }
+            onSubmitEditing={
+              ({nativeEvent}) => setCurrFocus(tempItem)
+            }
+          />
+          <AddFocus 
+            size={50} 
+            title={'+'}
+            onPress={
+              () => setCurrFocus(tempItem)
+            }
+          />
         </View>
       </View>
     </View>
@@ -40,6 +56,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     paddingTop: 20,
     flexDirection: 'row',
+    alignItems: 'center'
   },
 
   input: {
