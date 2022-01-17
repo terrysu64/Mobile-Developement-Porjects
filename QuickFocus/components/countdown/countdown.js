@@ -1,19 +1,36 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const minToMs = (min) => min*6000;
+const minToMs = (min) => min*60000;
 
 export const Countdown = ({mins=20, isPaused}) => {
 
   const [ms,setMs] = useState(minToMs(mins));
+  const interval = React.useRef(null);
   const formatTime = (time) => time < 10 ? `0${time}` : time;
+  const countDown = (time) =>  {
+    setMs((time) => {
+      if (time <= 0) {
+        //do more stuff here ltr
+        return 0
+      }
+      const timeLeft = time - 1000;
+      //report state here ltr too
+      return timeLeft
+    });
+  };
+  // useEffect is similar to componentDidMount and componentDidUpdate (it's like a condiiton for rendering)
+  useEffect(() => {
+    interval.current = setInterval(()=>countDown(ms),1000)
+    return () => clearInterval(interval.current)
+  },[]);
 
-  const min = Math.floor(ms/6000);
-  const sec = Math.floor((ms%6000)/1000);
+  const minutes = Math.floor(ms/60000)
+  const seconds = Math.floor((ms%60000)/1000)
 
   return (
     <View>
-      <Text style={styles.text}>{formatTime(min)}:{formatTime(sec)}</Text>
+      <Text style={styles.text}>{formatTime(minutes)}:{formatTime(seconds)}</Text>
     </View>
   );
   
