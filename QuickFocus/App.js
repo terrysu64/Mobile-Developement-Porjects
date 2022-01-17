@@ -3,15 +3,17 @@
 import React, {useState} from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import {Focus} from './components/focus/focus';
+import {Timer} from './components/timer/timer';
 
 export default function App() {
 
   // states
   const [currFocus,setCurrFocus] = useState(null);
+  
   // functions
   const renderElement = (currFocus) => {
     if (currFocus) {
-      return <Text>Put timer here later</Text>
+      return <Timer currFocus={currFocus}/>
     }
     else {
       return (
@@ -24,7 +26,6 @@ export default function App() {
   return (
     <View style={styles.container}>
       {renderElement(currFocus)}
-      <Text>{currFocus}</Text>
     </View>
   );
 }
