@@ -6,7 +6,7 @@ import {Focus} from './components/focus/focus';
 import {Timer} from './components/timer/timer';
 
 export default function App() {
-
+  
   // states
   const [currFocus,setCurrFocus] = useState(null);
   

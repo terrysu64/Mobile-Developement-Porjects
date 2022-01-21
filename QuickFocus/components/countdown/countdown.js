@@ -19,6 +19,12 @@ export const Countdown = ({mins=1, isPaused, onProgress}) => {
       return timeLeft
     });
   };
+
+  //change display everytime new minutes come in
+  useEffect(()=> {
+    setMs(minToMs(mins))
+  },[mins])
+
   // useEffect is similar to componentDidMount and componentDidUpdate (it's like a condiiton for rendering)
   useEffect(() => {
     if (isPaused) {
