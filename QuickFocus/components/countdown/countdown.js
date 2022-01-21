@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 
 const minToMs = (min) => min*60000;
 
-export const Countdown = ({mins=20, isPaused}) => {
+export const Countdown = ({mins=1, isPaused, onProgress}) => {
 
   const [ms,setMs] = useState(minToMs(mins));
   const interval = React.useRef(null);
@@ -15,7 +15,7 @@ export const Countdown = ({mins=20, isPaused}) => {
         return 0
       }
       const timeLeft = time - 1000;
-      //report state here ltr too
+      onProgress(timeLeft / minToMs(mins))
       return timeLeft
     });
   };

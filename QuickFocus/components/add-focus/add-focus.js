@@ -31,7 +31,8 @@ const styles = (size) => {
 
     text: {
       color: '#fff',
-      fontSize: size/3,
+      fontSize: size/5,
+      textAlign: 'center',
     }
 
   });
