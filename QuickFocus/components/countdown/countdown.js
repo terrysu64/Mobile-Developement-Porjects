@@ -3,15 +3,16 @@ import { View, Text, StyleSheet } from 'react-native';
 
 const minToMs = (min) => min*60000;
 
-export const Countdown = ({mins=1, isPaused, onProgress}) => {
+export const Countdown = ({mins=0, isPaused, onProgress, onEnd}) => {
 
   const [ms,setMs] = useState(minToMs(mins));
   const interval = React.useRef(null);
   const formatTime = (time) => time < 10 ? `0${time}` : time;
   const countDown = (time) =>  {
     setMs((time) => {
-      if (time <= 0) {
-        //do more stuff here ltr
+      if (time <= 0 || mins === 0) {
+        clearInterval(interval.current)
+        onEnd()
         return 0
       }
       const timeLeft = time - 1000;

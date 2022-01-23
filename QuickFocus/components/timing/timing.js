@@ -5,9 +5,9 @@ import {TimeButton} from '../time-button/time-button'
 export const Timing = ({changeTime}) => {
   return (
     <View style={styles.buttonWrapper}>
-      <TimeButton size={50} title={'15'} onPress={()=>changeTime(15)}/>
-      <TimeButton size={50} title={'30'} onPress={()=>changeTime(30)}/>
-      <TimeButton size={50} title={'45'} onPress={()=>changeTime(45)}/>
+      <TimeButton size={50} title={'15min'} onPress={()=>changeTime(15)}/>
+      <TimeButton size={50} title={'30min'} onPress={()=>changeTime(30)}/>
+      <TimeButton size={50} title={'45min'} onPress={()=>changeTime(45)}/>
     </View>
   )
 };

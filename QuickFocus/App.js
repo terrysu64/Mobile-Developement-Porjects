@@ -7,13 +7,14 @@ import {Timer} from './components/timer/timer';
 
 export default function App() {
   
-  // states
   const [currFocus,setCurrFocus] = useState(null);
   
-  // functions
+  const onTimerEnd = () => {
+    setCurrFocus(null)
+  };
   const renderElement = (currFocus) => {
     if (currFocus) {
-      return <Timer currFocus={currFocus}/>
+      return <Timer currFocus={currFocus} onTimerEnd={onTimerEnd}/>
     }
     else {
       return (
@@ -22,7 +23,6 @@ export default function App() {
     }
   };
 
-  // rendered app
   return (
     <View style={styles.container}>
       {renderElement(currFocus)}
@@ -30,7 +30,6 @@ export default function App() {
   );
 }
 
-// native styling
 const styles = StyleSheet.create({ 
   
   container: {
