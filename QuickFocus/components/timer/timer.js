@@ -7,7 +7,7 @@ import {AddFocus} from '../add-focus/add-focus';
 import {Timing} from  '../timing/timing';
 import {ProgressBar} from 'react-native-paper';
 
-export const Timer = ({currFocus, onTimerEnd}) => {
+export const Timer = ({currFocus, onTimerEnd, clearSubject}) => {
 
   useKeepAwake();
 
@@ -64,7 +64,7 @@ export const Timer = ({currFocus, onTimerEnd}) => {
         (<AddFocus title={'Start ▶'} size={200} onPress={()=>{setIsStarted(true)}}/>)}
       </View>
       <View style={styles.clearSubject}> 
-        <AddFocus title={'Clear'} size={50} backgroundColor={'#2cb307'} onPress={()=>onTimerEnd()}/>
+        <AddFocus title={'Clear'} size={50} backgroundColor={'#2cb307'} onPress={()=>clearSubject()}/>
       </View>
     </View>
   );

@@ -10,7 +10,7 @@ export const Focus = ({setCurrFocus}) => {
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>Please Enter a Temporary Focus ⌚</Text>
+        <Text style={styles.title}>Please Enter a Temporary Focus</Text>
         <View style={styles.inputContainer}>
           <TextInput 
             style={styles.input}
@@ -37,7 +37,8 @@ export const Focus = ({setCurrFocus}) => {
 const styles = StyleSheet.create({ 
   
   container: {
-    flex: 1,
+    flex: 0.3,
+    paddingTop: 100,
   },
 
   titleContainer: {
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     paddingTop: 20,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
   },
 
   input: {
