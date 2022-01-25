@@ -1,17 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, SafeAreaView } from 'react-native';
-//will use add-focus as button for distinct purpose again
-import AddFocus from '../add-focus/add-focus';
+//will use TimeButton as button for distinct purpose again
+import {TimeButton} from '../time-button/time-button';
 
 export const FocusHistory = ({focusHistory, onClear}) => {
 
-  const clearHistory = () => {
-    onClear()
-  };
   const historyItem = ({item,index}) => {
     const status = item.status === 0 ? '❌' : '✅'
+    const date = new Date().toLocaleString().slice(0,10)
     return (
-      <Text style={styles.historyItem(item.status)}>{`${item.subject} ${status}`}</Text>
+      <Text style={styles.historyItem(item.status)}>{`${item.subject} ${status}, ${date}`}</Text>
     )
   };
 
@@ -25,6 +23,9 @@ export const FocusHistory = ({focusHistory, onClear}) => {
             data={focusHistory} 
             renderItem={historyItem}
         />
+        <View style={styles.clearContainer}>
+          <TimeButton title={'Clear History'} size={50} onPress={() => onClear()}/>
+        </View>
       </SafeAreaView>
     </>
   );
@@ -54,5 +55,10 @@ const styles = StyleSheet.create({
     fontSize: 17,
     marginBottom: 10,
   }),
+
+  clearContainer: {
+    alignItems: 'center',
+    paddingBottom: 10,
+  },
 
 });

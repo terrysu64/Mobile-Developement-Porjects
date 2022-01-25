@@ -1,10 +1,11 @@
 // QuickFocus is a Pomodoro-like app that excels in simplicity and helps users focus on one task at a time
 
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Component} from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import {Focus} from './components/focus/focus';
 import {Timer} from './components/timer/timer';
 import {FocusHistory} from './components/focus-history/focus-history';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function App() {
   
@@ -28,8 +29,38 @@ export default function App() {
     setCurrFocus(null)
   };
   const onClear = () => {
-    //do ltr
+    setFocusHistory([])
   };
+  const saveFocusHistory = async () => {
+    try {
+      await AsyncStorage.setItem("focusHistory", JSON.stringify(focusHistory))
+    }
+    catch (err) {
+      console.log(err)
+    }
+  };
+  const loadFocusHistory = async () => {
+    try {
+      const history = await AsyncStorage.getItem("focusHistory")
+      const temp = JSON.parse(history)
+      if (history && temp.length) {
+        setFocusHistory(temp)
+      }
+    }
+    catch (err) {
+      console.log(err)
+    }
+  };
+
+  useEffect(() => {
+    console.log(focusHistory)
+    saveFocusHistory()
+  },[focusHistory]);
+
+  useEffect(() => {
+    console.log(focusHistory)
+    loadFocusHistory()
+  },[]);
 
   const renderElement = (currFocus) => {
     if (currFocus) {
