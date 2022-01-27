@@ -6,6 +6,8 @@ const minToMs = (min) => min*60000;
 export const Countdown = ({mins=0, isPaused, onProgress, onEnd}) => {
 
   const [ms,setMs] = useState(minToMs(mins));
+  //in this case, useRef isn't pointing to any particular DOM node; 
+  //we're using it as an arbitrary variable to store our countdown interval instead
   const interval = React.useRef(null);
   const formatTime = (time) => time < 10 ? `0${time}` : time;
   const countDown = (time) =>  {
