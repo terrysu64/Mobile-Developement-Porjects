@@ -8,6 +8,15 @@ const Title = styled.Text`
     paddingBottom: 16px;
 `;
 
+const StyledCard = styled(Card)`
+    background-color: white;
+`;
+
+const CardCover = styled(Card.Cover)`
+    background-color: white;
+    padding: 20px;
+`;
+
 export const RestaurantCard = ({ restaurant = {} }) => {
 
     const {
@@ -21,28 +30,11 @@ export const RestaurantCard = ({ restaurant = {} }) => {
     } = restaurant;
 
     return (
-        <Card evelvation={5} style={styles.restaurantCard}>
-            <Card.Cover key={name} style={styles.cover} source={{ uri: photos[0]}}/>
+        <StyledCard evelvation={5}>
+            <CardCover key={name} source={{ uri: photos[0]}}/>
             <Title>{name}</Title>
-        </Card>
+        </StyledCard>
     );
 
 }
 
-const styles = StyleSheet.create({
-
-    card: {
-        backgroundColor: 'white',
-    },
-
-    cover: {
-        padding: 20,
-        backgroundColor: 'white',
-    },
-
-    title: {
-        paddingLeft: 16,
-        paddingBottom: 16,
-    },
-
-});
