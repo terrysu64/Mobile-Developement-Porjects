@@ -29,7 +29,7 @@ export const RestaurantsScreen = () => {
               <Searchbar placeholder="Search Restaurants 🍽"/>
           </SearchContinaer>
           <ListContainer>
-              <RestaurantCard/>
+              <RestaurantCard key={1}/>
           </ListContainer>
         </SafeArea>
     </>
