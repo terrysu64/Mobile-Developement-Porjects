@@ -4,16 +4,17 @@ import { Text, StyleSheet } from 'react-native';
 import { Card } from 'react-native-paper';
 
 const Title = styled.Text`
-    paddingLeft: 16px;
-    paddingBottom: 16px;
+    paddingLeft: ${(props) => props.theme.space[3]};
+    paddingBottom: ${(props) => props.theme.space[3]};
+    color: ${(props) => props.theme.colors.ui.primary}
 `;
 
 const StyledCard = styled(Card)`
-    background-color: white;
+    background-color: ${(props) => props.theme.colors.ui.quaternary}
 `;
 
 const CardCover = styled(Card.Cover)`
-    background-color: white;
+    background-color: ${(props) => props.theme.colors.ui.quaternary}
     padding: 20px;
 `;
 
