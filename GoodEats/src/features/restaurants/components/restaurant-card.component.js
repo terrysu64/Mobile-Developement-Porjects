@@ -7,6 +7,7 @@ import { Star } from "../../../../assets/star";
 
 const StyledCard = styled(Card)`
     background-color: ${(props) => props.theme.colors.ui.quaternary};
+    margin-bottom: ${(props) => props.theme.space[3]};
 `;
 
 const CardCover = styled(Card.Cover)`
