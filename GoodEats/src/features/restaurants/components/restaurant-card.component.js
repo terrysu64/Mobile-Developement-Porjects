@@ -8,6 +8,7 @@ import { Star } from "../../../../assets/star";
 const StyledCard = styled(Card)`
     background-color: ${(props) => props.theme.colors.ui.quaternary};
     margin-bottom: ${(props) => props.theme.space[3]};
+    elevation: 6;
 `;
 
 const CardCover = styled(Card.Cover)`
@@ -79,7 +80,7 @@ export const RestaurantCard = ({ restaurant = {} }) => {
     } = restaurant;
 
     return (
-        <StyledCard evelvation={5}>
+        <StyledCard>
             <CardCover key={name} source={{ uri: photos[0]}}/>
             <Info>
                 <Title>{name}</Title>
