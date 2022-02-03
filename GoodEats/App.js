@@ -9,6 +9,7 @@ import { useFonts as useOswald, Oswald_400Regular} from '@expo-google-fonts/oswa
 import { useFonts as useLato, Lato_400Regular} from '@expo-google-fonts/lato';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons, FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 
 //Note: StatusBar.currentHeight only exists on Android
 const SafeArea = styled(SafeAreaView)`
@@ -41,7 +42,23 @@ export default function App() {
       <SafeArea>
         <ThemeProvider theme={theme}>
           <NavigationContainer>
-            <Tab.Navigator>
+            <Tab.Navigator
+              screenOptions={({ route }) => ({
+                tabBarIcon: ({ color, size }) => {
+                  if (route.name === 'Restaurants') {
+                    return <Ionicons name={'md-fast-food'} size={size} color={color}/>
+                  } 
+                  else if (route.name === 'Map') {
+                    return <FontAwesome5 name="map-marked-alt" size={size} color={color}/>
+                  }
+                  else if (route.name === 'Settings') {
+                    return <MaterialIcons name="app-settings-alt" size={size} color={color} />
+                  }
+                },
+                tabBarActiveTintColor: '#e396d9',
+                tabBarInactiveTintColor: 'gray',
+              })}
+            >
               <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
               <Tab.Screen name="Map" component={Map} />
               <Tab.Screen name="Settings" component={Settings} />
