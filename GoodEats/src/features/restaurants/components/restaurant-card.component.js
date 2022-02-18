@@ -75,13 +75,18 @@ export const RestaurantCard = ({ restaurant = {} }) => {
         icon="https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
         photos = ["https://media.blogto.com/articles/20211009-1Hotel-15.jpg?w=2048&cmd=resize_then_crop&height=1365&quality=70"],
         address = '100 temp street',
-        isOpen = true,
         rating = 3
     } = restaurant;
 
+    var {isOpen = true} = restaurant;
+
+    if (restaurant.isClosedTemporarily) {
+        isOpen = false
+    };
+
     return (
         <StyledCard>
-            <CardCover key={name} source={{ uri: photos[0]}}/>
+            <CardCover key={name} source={{ uri: photos[Math.floor(Math.random() * (photos.length-1))]}}/>
             <Info>
                 <Title>{name}</Title>
                 <SvgContainer>

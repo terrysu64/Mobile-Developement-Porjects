@@ -1,4 +1,4 @@
-import {mocks} from "./mock";
+import {mocks, mockImages} from "./mock";
 import camelize from "camelize";
 import { ThemeConsumer } from "styled-components/native";
 
@@ -14,6 +14,7 @@ export const restaurantsRequest = (location = "43.653225,-79.383186") => {
 
 export const restaurantsTransform = ({ results = [] }) => {
     const mappedResults = results.map((restaurant) => {
+        restaurant.photos = mockImages
         return {
             ... restaurant,
             isOpen: restaurant.opening_hours && restaurant.opening_hours.open_now,
@@ -22,12 +23,3 @@ export const restaurantsTransform = ({ results = [] }) => {
     })
     return camelize(mappedResults)
 };
-
-restaurantsRequest()
-    .then(restaurantsTransform)
-    .then((transformedRes) => {
-        console.log(transformedRes);
-    })
-    .catch((err) => {
-    console.log('not found')
-})

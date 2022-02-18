@@ -17,9 +17,7 @@ const RestaurantList = styled(FlatList).attrs({
 
 export const RestaurantsScreen = () => {
   
-  //testing if API data was transformed into react context
-  const restaurantContext = useContext(RestaurantsContext);
-  console.log(restaurantContext)
+  const { isLoading, error, restaurants} = useContext(RestaurantsContext);
 
   return (
   <View>
@@ -27,8 +25,11 @@ export const RestaurantsScreen = () => {
         <Searchbar placeholder="Search Restaurants 🍽"/>
     </SearchContinaer>
     <RestaurantList
-      data={restaurantContext.restaurants}
-      renderItem={() => <RestaurantCard/>}
+      data={restaurants}
+      renderItem={({item}) => {
+        console.log(item)
+        return <RestaurantCard restaurant={item}/>
+      }}
       keyExtractor={(item) => item.name}
     />
   </View>
