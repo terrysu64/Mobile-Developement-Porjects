@@ -1,0 +1,161 @@
+{
+    "html_attributions": [],
+    "next_page_token": "some token",
+    "results": [
+      {
+        "business_status": "OPERATIONAL",
+        "geometry": {
+          "location": {
+            "lat": 42.234323,
+            "lng": -88.121432
+          },
+          "viewport": {
+            "northeast": {
+              "lat": 23.234234234,
+              "lng": 22.123987987
+            },
+            "southwest": {
+              "lat": 42.12300982,
+              "lng": 36.30293802
+            }
+          }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+        "name": "Markham Restaurant",
+        "opening_hours": {
+          "open_now": true
+        },
+        "photos": [
+          {
+            "height": 4910,
+            "html_attributions": [
+              ""
+            ],
+            "photo_reference": "",
+            "width": 6576
+          }
+        ],
+        "place_id": "some place id 61",
+        "plus_code": {
+          "compound_code": "",
+          "global_code": ""
+        },
+        "rating": 4.2,
+        "reference": "",
+        "scope": "",
+        "types": [
+          "lodging",
+          "restaurant",
+          "food",
+          "point_of_interest",
+          "establishment"
+        ],
+        "user_ratings_total": 1822,
+        "vicinity": "45 The Esplanade, Toronto"
+      },
+      {
+        "business_status": "OPERATIONAL",
+        "geometry": {
+          "location": {
+            "lat": 43.6460303,
+            "lng": -79.381388
+          },
+          "viewport": {
+            "northeast": {
+              "lat": 43.6471657802915,
+              "lng": -79.3799530197085
+            },
+            "southwest": {
+              "lat": 43.6444678197085,
+              "lng": -79.3826509802915
+            }
+          }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+        "name": "Markham McDonalds",
+        "opening_hours": {
+          "open_now": true
+        },
+        "photos": [
+          {
+            "height": 2048,
+            "html_attributions": [
+              ""
+            ],
+            "photo_reference": "",
+            "width": 1621
+          }
+        ],
+        "place_id": "some place id 62",
+        "plus_code": {
+          "compound_code": "",
+          "global_code": ""
+        },
+        "rating": 2.3,
+        "reference": "",
+        "scope": "",
+        "types": [
+          "lodging",
+          "restaurant",
+          "food",
+          "point_of_interest",
+          "establishment"
+        ],
+        "user_ratings_total": 8383,
+        "vicinity": "100 Front Street West, Toronto"
+      },
+      {
+        "business_status": "OPERATIONAL",
+        "geometry": {
+          "location": {
+            "lat": 43.65,
+            "lng": -79.39638889999999
+          },
+          "viewport": {
+            "northeast": {
+              "lat": 43.6512747302915,
+              "lng": -79.39500986970849
+            },
+            "southwest": {
+              "lat": 43.6485767697085,
+              "lng": -79.3977078302915
+            }
+          }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+        "name": "Best Markham Restaurant",
+        "opening_hours": {
+          "open_now": true
+        },
+        "photos": [
+          {
+            "height": 1924,
+            "html_attributions": [
+              ""
+            ],
+            "photo_reference": "",
+            "width": 3598
+          }
+        ],
+        "place_id": "some place id 63",
+        "plus_code": {
+          "compound_code": "",
+          "global_code": ""
+        },
+        "rating": 4.3,
+        "reference": "",
+        "scope": "",
+        "types": [
+          "lodging",
+          "bar",
+          "restaurant",
+          "food",
+          "point_of_interest",
+          "establishment"
+        ],
+        "user_ratings_total": 502,
+        "vicinity": "195 Spadina Avenue, Toronto"
+      }
+    ],
+    "status": "OK"
+  }
