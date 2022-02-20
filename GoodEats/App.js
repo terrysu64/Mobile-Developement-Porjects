@@ -14,7 +14,7 @@ import { RestaurantsContextProvider } from './src/services/restaurants/restauran
 
 //Note: StatusBar.currentHeight only exists on Android
 const SafeArea = styled(SafeAreaView)`
-  flex: 1;
+  height: 100%;
   ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`}; 
 `;
 
