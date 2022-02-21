@@ -1,14 +1,10 @@
 import React, {useContext} from 'react';
 import { StatusBar, View, FlatList, SafeAreaView} from 'react-native';
-import { Searchbar } from 'react-native-paper';
 import styled from "styled-components/native";
 import { RestaurantCard } from '../components/restaurant-card.component';
 import { RestaurantsContext } from '../../../services/restaurants/restaurants-context';
 import { ActivityIndicator } from 'react-native-paper';
-
-const SearchContinaer = styled.View`
-  padding: ${(props) => props.theme.space[3]};
-`;
+import { SearchBar } from '../components/search-component';
 
 //using native styling system for this one specifically coz we're styling flatlist contents not the flatlist itself
 const RestaurantList = styled(FlatList).attrs({
@@ -42,9 +38,7 @@ export const RestaurantsScreen = () => {
         <Loading size={50} animating={true} color={'#e396d9'}/>
       </LoadingContainer>
     )}
-    <SearchContinaer>
-        <Searchbar placeholder="Search Restaurants 🍽"/>
-    </SearchContinaer>
+    <SearchBar/>
     <RestaurantList
       data={restaurants}
       renderItem={({item}) => {

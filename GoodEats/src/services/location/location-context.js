@@ -10,7 +10,8 @@ export const LocationContextProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [location, setLocation] = useState(null);
 
-    const onSearch = (searchKeyword) => {
+    const OnSearch = (searchKeyword) => {
+        console.log(searchKeyword)
         setIsLoading(true);
         setKeyword(searchKeyword.toLowerCase());
         locationRequest(searchKeyword)
@@ -25,18 +26,14 @@ export const LocationContextProvider = ({ children }) => {
         })
     };
 
-    useEffect(() => {
-        onSearch(keyword)
-    }, []);
-
     return (
         <LocationContext.Provider
             value = {{
                 isLoading,
                 error,
                 location,
-                search: onSearch,
                 keyword,
+                search: OnSearch
             }}
         >
             {children}
