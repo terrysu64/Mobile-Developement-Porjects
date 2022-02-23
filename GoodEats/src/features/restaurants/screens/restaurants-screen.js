@@ -28,9 +28,9 @@ const Loading = styled(ActivityIndicator)`
 `;
 
 export const RestaurantsScreen = () => {
-  
-  const { isLoading, error, restaurants} = useContext(RestaurantsContext);
 
+  const { isLoading, error, restaurants} = useContext(RestaurantsContext);
+  
   return (
   <Container>
     {isLoading && (

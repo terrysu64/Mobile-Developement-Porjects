@@ -2,7 +2,7 @@ import {mocks, mockImages} from "./mock";
 import camelize from "camelize";
 import { ThemeConsumer } from "styled-components/native";
 
-export const restaurantsRequest = (location = "43.653225,-79.383186") => {
+export const restaurantsRequest = (location) => {
     return new Promise ((resolve,reject) => {
         const mock = mocks[location];
         if (!mock) {

@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import { locationRequest, locationTransform } from "./location-service";
+import { RestaurantsContextProvider } from "../restaurants/restaurants-context";
 
 export const LocationContext = createContext();
 
@@ -11,7 +12,6 @@ export const LocationContextProvider = ({ children }) => {
     const [location, setLocation] = useState(null);
 
     const OnSearch = (searchKeyword) => {
-        console.log(searchKeyword)
         setIsLoading(true);
         setKeyword(searchKeyword.toLowerCase());
         locationRequest(searchKeyword)
@@ -24,6 +24,7 @@ export const LocationContextProvider = ({ children }) => {
             setIsLoading(false)
             setError(error)
         })
+        console.log(location)
     };
 
     return (
@@ -39,4 +40,4 @@ export const LocationContextProvider = ({ children }) => {
             {children}
         </LocationContext.Provider>
     );
-};
+}; 

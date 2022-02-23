@@ -44,8 +44,8 @@ export default function App() {
     <>
       <SafeArea>
         <ThemeProvider theme={theme}>
-          <RestaurantsContextProvider>
-            <LocationContextProvider>
+          <LocationContextProvider>
+            <RestaurantsContextProvider>
               <NavigationContainer>
                 <Tab.Navigator
                   screenOptions={({ route }) => ({
@@ -69,8 +69,8 @@ export default function App() {
                   <Tab.Screen name="Settings" component={Settings} />
                 </Tab.Navigator>
               </NavigationContainer>
-            </LocationContextProvider>
-          </RestaurantsContextProvider>
+            </RestaurantsContextProvider>
+          </LocationContextProvider>
         </ThemeProvider>
         <ExpoStatusBar style="auto"/>
       </SafeArea>
