@@ -17,6 +17,7 @@ export const restaurantsTransform = ({ results = [] }) => {
         restaurant.photos = mockImages
         return {
             ... restaurant,
+            address: restaurant.vicinity,
             isOpen: restaurant.opening_hours && restaurant.opening_hours.open_now,
             isClosedTemporarily: restaurant.business_status !== "OPERATIONAL", 
         }
