@@ -75,7 +75,8 @@ export const RestaurantCard = ({ restaurant = {} }) => {
         icon="https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
         photos = ["https://media.blogto.com/articles/20211009-1Hotel-15.jpg?w=2048&cmd=resize_then_crop&height=1365&quality=70"],
         address = '100 temp street',
-        rating = 3
+        rating = 3,
+        placeId
     } = restaurant;
 
     var {isOpen = true} = restaurant;
@@ -91,8 +92,8 @@ export const RestaurantCard = ({ restaurant = {} }) => {
                 <Title>{name}</Title>
                 <SvgContainer>
                     <RatingContainer>
-                        {[...Array(Math.floor(rating))].map(() =>(
-                            <SvgXml xml={Star} width={20} height={20}/>
+                        {[...Array(Math.floor(rating))].map((_,index) =>(
+                            <SvgXml key={`${placeId}-${index}`} xml={Star} width={20} height={20}/>
                         ))}
                     </RatingContainer>
                     <OpenSvg>
