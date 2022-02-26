@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components/native";
-import { Text, View, Image } from 'react-native';
 import { Card } from 'react-native-paper';
 import { SvgXml } from "react-native-svg";
 import { Star } from "../../../../assets/star";

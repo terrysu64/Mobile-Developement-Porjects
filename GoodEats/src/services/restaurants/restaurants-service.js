@@ -1,6 +1,5 @@
 import {mocks, mockImages} from "./mock";
 import camelize from "camelize";
-import { ThemeConsumer } from "styled-components/native";
 
 export const restaurantsRequest = (location) => {
     return new Promise ((resolve,reject) => {
