@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import { FlatList, Pressable } from 'react-native';
+import { FlatList, TouchableOpacity } from 'react-native';
 import styled from "styled-components/native";
 import { RestaurantCard } from '../components/restaurant-card.component';
 import { RestaurantsContext } from '../../../services/restaurants/restaurants-context';
@@ -29,7 +29,7 @@ const Loading = styled(ActivityIndicator)`
 
 export const RestaurantsScreen = ({ navigation }) => {
 
-  const { isLoading, error, restaurants} = useContext(RestaurantsContext);
+  const { isLoading, restaurants} = useContext(RestaurantsContext);
   
   return (
   <Container>
@@ -43,9 +43,11 @@ export const RestaurantsScreen = ({ navigation }) => {
       data={restaurants}
       renderItem={({item}) => {
         return (
-          <Pressable onPress={() => navigation.navigate("RestaurantDetail")}>
+          <TouchableOpacity onPress={() => 
+              navigation.navigate("RestaurantDetail", {restaurant: item})} 
+          >
             <RestaurantCard restaurant={item}/>
-          </Pressable>
+          </TouchableOpacity>
         )
       }}
       keyExtractor={(item) => item.name}
@@ -54,3 +56,5 @@ export const RestaurantsScreen = ({ navigation }) => {
   );
 
 }
+
+//Note: inidividual restaurants are passed as props to restaurantDetailScreen
