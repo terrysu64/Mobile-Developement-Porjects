@@ -19,6 +19,7 @@ export const restaurantsTransform = ({ results = [] }) => {
             address: restaurant.vicinity,
             isOpen: restaurant.opening_hours && restaurant.opening_hours.open_now,
             isClosedTemporarily: restaurant.business_status !== "OPERATIONAL", 
+            randomIndex: Math.floor(Math.random() * (6)),
         }
     })
     return camelize(mappedResults)

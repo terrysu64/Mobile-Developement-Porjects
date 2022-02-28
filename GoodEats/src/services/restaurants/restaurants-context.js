@@ -28,7 +28,7 @@ export const RestaurantsContextProvider = ({ children }) => {
                     setIsLoading(false)
                     setError(err)
                 })
-        }, 1000)
+        }, 1000) 
 
     };  
 

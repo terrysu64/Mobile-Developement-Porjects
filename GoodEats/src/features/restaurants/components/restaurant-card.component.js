@@ -75,8 +75,10 @@ export const RestaurantCard = ({ restaurant = {} }) => {
         photos = ["https://media.blogto.com/articles/20211009-1Hotel-15.jpg?w=2048&cmd=resize_then_crop&height=1365&quality=70"],
         address = '100 temp street',
         rating = 3,
-        placeId
+        placeId,
+        randomIndex
     } = restaurant;
+
 
     var {isOpen = true} = restaurant;
 
@@ -85,8 +87,8 @@ export const RestaurantCard = ({ restaurant = {} }) => {
     };
 
     return (
-        <StyledCard>
-            <CardCover key={name} source={{ uri: photos[Math.floor(Math.random() * (photos.length-1))]}}/>
+        <StyledCard> 
+            <CardCover key={name} source={{ uri: photos[randomIndex]}}/>
             <Info>
                 <Title>{name}</Title>
                 <SvgContainer>
