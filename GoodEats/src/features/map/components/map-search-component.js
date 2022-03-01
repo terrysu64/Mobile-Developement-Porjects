@@ -7,7 +7,7 @@ const SearchContinaer = styled.View`
   padding: ${(props) => props.theme.space[3]};
 `;
 
-export const SearchBar= () => {
+export const MapSearchBar= () => {
     
     const { keyword, search } = useContext(LocationContext);
     const [searchKeyword, setSearchKeyword] = useState(keyword);
@@ -24,6 +24,7 @@ export const SearchBar= () => {
         <SearchContinaer>
             <Searchbar 
                 placeholder="Search by Location 📍" 
+                icon="map"
                 value={searchKeyword}
                 onSubmitEditing = {() => {search(searchKeyword)}}
                 onChangeText = {(text) => {
