@@ -13,7 +13,8 @@ export const AppNavigator = () => {
     return (
         <NavigationContainer>
             <Tab.Navigator
-                screenOptions={({ route }) => ({
+                screenOptions={
+                ({ route }) => ({
                 tabBarIcon: ({ color, size }) => {
                     if (route.name === 'Restaurants') {
                     return <Ionicons name={'md-fast-food'} size={size} color={color}/>
@@ -25,6 +26,7 @@ export const AppNavigator = () => {
                     return <MaterialIcons name="app-settings-alt" size={size} color={color} />
                     }
                 },
+                headerShown: true,
                 tabBarActiveTintColor: '#e396d9',
                 tabBarInactiveTintColor: 'gray',
                 })}
