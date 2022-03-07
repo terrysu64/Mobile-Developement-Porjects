@@ -3,6 +3,7 @@ import styled from "styled-components/native";
 import { Card } from 'react-native-paper';
 import { SvgXml } from "react-native-svg";
 import { Star } from "../../../../assets/star";
+import { Favourite } from "../../../components/favourites/favourites-component";
 
 const StyledCard = styled(Card)`
     background-color: ${(props) => props.theme.colors.ui.quaternary};
@@ -87,7 +88,8 @@ export const RestaurantCard = ({ restaurant = {} }) => {
     };
 
     return (
-        <StyledCard> 
+        <StyledCard>
+            <Favourite/> 
             <CardCover key={name} source={{ uri: photos[randomIndex]}}/>
             <Info>
                 <Title>{name}</Title>

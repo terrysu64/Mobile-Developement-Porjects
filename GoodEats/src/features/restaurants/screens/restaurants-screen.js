@@ -3,6 +3,7 @@ import { FlatList, TouchableOpacity } from 'react-native';
 import styled from "styled-components/native";
 import { RestaurantCard } from '../components/restaurant-card.component';
 import { RestaurantsContext } from '../../../services/restaurants/restaurants-context';
+import { FavouritesContext } from '../../../services/favourites/favourites-context';
 import { ActivityIndicator } from 'react-native-paper';
 import { SearchBar } from '../components/search-component';
 
@@ -30,7 +31,8 @@ const Loading = styled(ActivityIndicator)`
 export const RestaurantsScreen = ({ navigation }) => {
 
   const { isLoading, restaurants} = useContext(RestaurantsContext);
-  
+  const { favourites } = useContext(FavouritesContext);
+
   return (
   <Container>
     {isLoading && (
