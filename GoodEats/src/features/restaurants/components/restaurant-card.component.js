@@ -89,7 +89,7 @@ export const RestaurantCard = ({ restaurant = {} }) => {
 
     return (
         <StyledCard>
-            <Favourite/> 
+            <Favourite restaurant={restaurant}/> 
             <CardCover key={name} source={{ uri: photos[randomIndex]}}/>
             <Info>
                 <Title>{name}</Title>

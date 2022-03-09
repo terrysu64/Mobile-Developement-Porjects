@@ -4,7 +4,7 @@ export const FavouritesContext = createContext();
 
 export const FavouritesContextProvider = ({ children }) => {
     
-    const [favourites, setFavourites]= useState(['favouritestemp']);
+    const [favourites, setFavourites]= useState([]);
 
     const Add = (restaurant) => {
         setFavourites([...favourites, restaurant])
