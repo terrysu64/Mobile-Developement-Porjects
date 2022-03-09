@@ -52,7 +52,7 @@ export const MapScreen = ({ navigation }) => {
                         }}
                     >
                         <MapView.Callout onPress={() => 
-              navigation.navigate("RestaurantDetail", {restaurant})} >
+              navigation.navigate("RestaurantDetail", {restaurant})}>
                             <TouchableOpacity>
                                 <MapCallout restaurant={restaurant}/>
                             </TouchableOpacity>

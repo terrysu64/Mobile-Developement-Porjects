@@ -6,6 +6,7 @@ import { RestaurantsContext } from '../../../services/restaurants/restaurants-co
 import { ActivityIndicator } from 'react-native-paper';
 import { SearchBar } from '../components/search-component';
 import { FavouritesBar } from '../../../components/favourites/favourites-bar-component';
+import { FavouritesContext } from '../../../services/favourites/favourites-context';
 
 //using native styling system for this one specifically coz we're styling flatlist contents not the flatlist itself
 const RestaurantList = styled(FlatList).attrs({
@@ -31,6 +32,7 @@ const Loading = styled(ActivityIndicator)`
 export const RestaurantsScreen = ({ navigation }) => {
 
   const { isLoading, restaurants} = useContext(RestaurantsContext);
+  const { favourites } = useContext(FavouritesContext);
   const [favouritesToggled, setFavouritesToggled] = useState(false);
 
   return (
@@ -40,8 +42,11 @@ export const RestaurantsScreen = ({ navigation }) => {
         <Loading size={50} animating={true} color={'#e396d9'}/>
       </LoadingContainer>
     )}
-    <SearchBar isFavouritesToggled={favouritesToggled} onFavouritesToggle={() => setFavouritesToggled(!favouritesToggled)}/>
-    {favouritesToggled && <FavouritesBar/>}
+    <SearchBar 
+      isFavouritesToggled={favouritesToggled} 
+      onFavouritesToggle={() => setFavouritesToggled(!favouritesToggled)}
+    />
+    {favouritesToggled && <FavouritesBar favourites={favourites} navigateDetail={navigation.navigate}/>}
     <RestaurantList
       data={restaurants}
       renderItem={({item}) => {
