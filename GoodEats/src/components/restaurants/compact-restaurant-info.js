@@ -30,9 +30,9 @@ const StyledText = styled.Text`
 
 const isAndroid = Platform.OS === "android";
 
-export const CompactRestaurantInfo = ({ restaurant }) => {
+export const CompactRestaurantInfo = ({ restaurant, isMap=false }) => {
     
-    const Image = isAndroid ? CompactWebView : CompactImage;
+    const Image = isAndroid && isMap ? CompactWebView : CompactImage;
 
     return (
         <Item>

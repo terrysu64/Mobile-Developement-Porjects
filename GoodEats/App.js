@@ -10,6 +10,18 @@ import { RestaurantsContextProvider } from './src/services/restaurants/restauran
 import { LocationContextProvider } from './src/services/location/location-context';
 import { AppNavigator } from './src/infrastructure/navigation/app-navigator';
 import { FavouritesContextProvider } from './src/services/favourites/favourites-context';
+import { initializeApp } from 'firebase/app';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCGTYa3_q3oqlgQVH67A9rmOAotERVf32s",
+  authDomain: "goodeats-423bc.firebaseapp.com",
+  projectId: "goodeats-423bc",
+  storageBucket: "goodeats-423bc.appspot.com",
+  messagingSenderId: "1082394813564",
+  appId: "1:1082394813564:web:9ffc428228e74ba0fa15f9"
+};
+
+initializeApp(firebaseConfig);
 
 //Note: StatusBar.currentHeight only exists on Android
 const SafeArea = styled(SafeAreaView)`
