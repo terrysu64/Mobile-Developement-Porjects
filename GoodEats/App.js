@@ -10,8 +10,8 @@ import { RestaurantsContextProvider } from './src/services/restaurants/restauran
 import { LocationContextProvider } from './src/services/location/location-context';
 import { AppNavigator } from './src/infrastructure/navigation/app-navigator';
 import { FavouritesContextProvider } from './src/services/favourites/favourites-context';
+import { AuthenticationContextProvider } from './src/services/authentication/authentication-context';
 import { initializeApp, getApps } from 'firebase/app';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCGTYa3_q3oqlgQVH67A9rmOAotERVf32s",
@@ -35,22 +35,6 @@ const SafeArea = styled(SafeAreaView)`
 
 export default function App() {
 
-  //temp firebase testing
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  useEffect(() => {
-    setTimeout(() => {
-      const auth = getAuth();
-      signInWithEmailAndPassword(auth, "terry@gmail.com", "111111")
-        .then((user) => {
-          console.log('found user', user)
-          setIsAuthenticated(true)
-        })
-        .catch((error) => {
-          console.log(error)
-        });
-    },2000)
-  }, []);
-
   const [oswaldLoaded] = useOswald({
     Oswald_400Regular,
   });
@@ -63,21 +47,19 @@ export default function App() {
     return null
   };
 
-  if (!isAuthenticated) {
-    return null
-  };
-
   return (
     <>
       <SafeArea>
         <ThemeProvider theme={theme}>
-          <FavouritesContextProvider>
-            <LocationContextProvider>
-              <RestaurantsContextProvider>
-                <AppNavigator/>
-              </RestaurantsContextProvider>
-            </LocationContextProvider>
-          </FavouritesContextProvider>
+          <AuthenticationContextProvider>
+            <FavouritesContextProvider>
+              <LocationContextProvider>
+                <RestaurantsContextProvider>
+                  <AppNavigator/>
+                </RestaurantsContextProvider>
+              </LocationContextProvider>
+            </FavouritesContextProvider>
+          </AuthenticationContextProvider>
         </ThemeProvider>
         <ExpoStatusBar style="auto"/>
       </SafeArea>
