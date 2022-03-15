@@ -19,7 +19,7 @@ export const FavouritesBar = ({ favourites, navigateDetail }) => {
                     {favourites.map((restaurant) => {
                         const key = restaurant.name.split(" ").join("");
                         return (
-                            <TouchableOpacity onPress={() => 
+                            <TouchableOpacity key={key} onPress={() => 
                             navigateDetail("RestaurantDetail", {restaurant})}>
                                 <CompactRestaurantView key={key}>
                                     <CompactRestaurantInfo restaurant={restaurant}/>

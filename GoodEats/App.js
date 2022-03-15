@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState,useEffect} from 'react';
 import { SafeAreaView, StatusBar } from 'react-native';
 import styled from "styled-components/native";
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
@@ -10,7 +10,8 @@ import { RestaurantsContextProvider } from './src/services/restaurants/restauran
 import { LocationContextProvider } from './src/services/location/location-context';
 import { AppNavigator } from './src/infrastructure/navigation/app-navigator';
 import { FavouritesContextProvider } from './src/services/favourites/favourites-context';
-import { initializeApp } from 'firebase/app';
+import { initializeApp, getApps } from 'firebase/app';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCGTYa3_q3oqlgQVH67A9rmOAotERVf32s",
@@ -21,7 +22,10 @@ const firebaseConfig = {
   appId: "1:1082394813564:web:9ffc428228e74ba0fa15f9"
 };
 
-initializeApp(firebaseConfig);
+if (!getApps().length) {
+  initializeApp(firebaseConfig);
+};
+
 
 //Note: StatusBar.currentHeight only exists on Android
 const SafeArea = styled(SafeAreaView)`
@@ -30,6 +34,22 @@ const SafeArea = styled(SafeAreaView)`
 `;
 
 export default function App() {
+
+  //temp firebase testing
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      const auth = getAuth();
+      signInWithEmailAndPassword(auth, "terry@gmail.com", "111111")
+        .then((user) => {
+          console.log('found user', user)
+          setIsAuthenticated(true)
+        })
+        .catch((error) => {
+          console.log(error)
+        });
+    },2000)
+  }, []);
 
   const [oswaldLoaded] = useOswald({
     Oswald_400Regular,
@@ -40,6 +60,10 @@ export default function App() {
   });
 
   if (!oswaldLoaded || !latoLoaded) {
+    return null
+  };
+
+  if (!isAuthenticated) {
     return null
   };
 
