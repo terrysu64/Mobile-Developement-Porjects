@@ -8,7 +8,7 @@ import { useFonts as useOswald, Oswald_400Regular} from '@expo-google-fonts/oswa
 import { useFonts as useLato, Lato_400Regular} from '@expo-google-fonts/lato';
 import { RestaurantsContextProvider } from './src/services/restaurants/restaurants-context';
 import { LocationContextProvider } from './src/services/location/location-context';
-import { AppNavigator } from './src/infrastructure/navigation/app-navigator';
+import { Navigation } from './src/infrastructure/navigation';
 import { FavouritesContextProvider } from './src/services/favourites/favourites-context';
 import { AuthenticationContextProvider } from './src/services/authentication/authentication-context';
 import { initializeApp, getApps } from 'firebase/app';
@@ -55,7 +55,7 @@ export default function App() {
             <FavouritesContextProvider>
               <LocationContextProvider>
                 <RestaurantsContextProvider>
-                  <AppNavigator/>
+                  <Navigation/>
                 </RestaurantsContextProvider>
               </LocationContextProvider>
             </FavouritesContextProvider>
