@@ -4,17 +4,25 @@ import {
         AccountCover, 
         AccountContainer, 
         LoginButton, 
-        RegisterButton 
+        RegisterButton,
+        Title,
+        TerryText 
         } from "../components/account-styles";
 
-export const AccountScreen = () => {
+export const AccountScreen = ({ navigation }) => {
     return (
         <AccountBackground>
             <AccountCover/>
+            <Title>GoodEats</Title>
             <AccountContainer>
-                <LoginButton>Login</LoginButton>
-                <RegisterButton>Register</RegisterButton>
+                <LoginButton onPress = {() => navigation.navigate("LoginScreen")}>
+                    Login
+                </LoginButton>
+                <RegisterButton onPress = {() => navigation.navigate("RegisterScreen")}>
+                    Register
+                </RegisterButton>
             </AccountContainer>
+            <TerryText>Made By: Terry Su</TerryText>
         </AccountBackground>
     );
 };

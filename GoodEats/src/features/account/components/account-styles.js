@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
-import { Button } from "react-native-paper"
+import { Button, TextInput } from "react-native-paper"
 
 export const AccountBackground = styled.ImageBackground.attrs({
     source: require("../../../../assets/account-background.jpg")
@@ -31,7 +31,6 @@ export const LoginButton = styled(Button).attrs({
             color: "white", 
             fontSize: 23 
     },
-    onPress: () => null,
 })`
     margin-bottom: ${(props) => props.theme.space[3]};
 `;
@@ -44,5 +43,42 @@ export const RegisterButton = styled(Button).attrs({
             color: "white", 
             fontSize: 23, 
     },
-    onPress: () => null,
 })``;
+
+export const BackButton = styled(Button).attrs({
+    color: '#e396d9',
+    mode: 'contained',
+    labelStyle: { 
+            color: "white", 
+            fontSize: 23, 
+    },
+})`
+    margin-top: 25px;
+`;
+
+export const AuthInput = styled(TextInput)`
+  width: 270px;
+  margin-bottom: 10px;
+`;
+
+export const ErrorText = styled.Text`
+    color: ${(props) => props.theme.colors.text.error};
+    font-weight: bold;
+    max-width: 270px;
+    margin-bottom: 15px;
+`;
+
+export const Title = styled.Text`
+    color: ${(props) => props.theme.colors.text.inverse};
+    font-size: ${(props) => props.theme.sizes[3]};
+    font-family: ${(props) => props.theme.fonts.heading};
+`;
+
+export const TerryText = styled.Text`
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: ${(props) => props.theme.colors.text.inverse};
+    font-size: ${(props) => props.theme.sizes[1]};
+    font-family: ${(props) => props.theme.fonts.monospace};
+`;

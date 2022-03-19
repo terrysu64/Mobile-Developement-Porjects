@@ -17,11 +17,11 @@ export const AuthenticationContextProvider = ({ children }) => {
                 setUser(currUser)
                 setIsAuthenticated(true)
                 setIsLoading(false)
-                console.log("User logged in:", user)
+                console.log("User logged in:", curruser)
             })
             .catch((err) => {
                 setIsLoading(false)
-                setError(err)
+                setError(err.toString())
             })
     };
 
