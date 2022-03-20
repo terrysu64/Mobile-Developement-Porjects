@@ -1,5 +1,5 @@
 import React, { useState, createContext } from "react";
-import { LoginRequest } from "./authentication-service";
+import { LoginRequest, RegisterRequest } from "./authentication-service";
 
 export const AuthenticationContext = createContext();
 
@@ -17,12 +17,28 @@ export const AuthenticationContextProvider = ({ children }) => {
                 setUser(currUser)
                 setIsAuthenticated(true)
                 setIsLoading(false)
-                console.log("User logged in:", curruser)
+                console.log("User logged in:", currUser)
             })
             .catch((err) => {
                 setIsLoading(false)
                 setError(err.toString())
             })
+    };
+
+    const onRegister = (email, password) => {
+        setIsLoading(true)
+        RegisterRequest(email, password)
+            .then((currUser) => {
+                setUser(currUser)
+                setIsAuthenticated(true)
+                setIsLoading(false)
+                console.log("User registered:", currUser)
+            })
+            .catch((err) => {
+                setIsLoading(false)
+                setError(err.toString())
+            })
+
     };
 
     return (
@@ -33,6 +49,7 @@ export const AuthenticationContextProvider = ({ children }) => {
                 isLoading,
                 error,
                 onLogin,
+                onRegister,
             }}
         >
             {children}
