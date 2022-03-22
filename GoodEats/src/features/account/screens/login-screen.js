@@ -9,13 +9,14 @@ import {
         LoginButton, 
         TerryText, 
         BackButton,
+        Loading,
         Title } from "../components/account-styles";
 
 export const LoginScreen = ({ navigation }) => {
     
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const { onLogin, error} = useContext(AuthenticationContext);
+    const { isLoading, onLogin, error} = useContext(AuthenticationContext);
 
     return (
         <AccountBackground>
@@ -42,7 +43,10 @@ export const LoginScreen = ({ navigation }) => {
                 {error && (
                     <ErrorText>{error}</ErrorText>
                 )}
-                <LoginButton onPress={() => onLogin(email, password)}>Login</LoginButton>
+                {isLoading 
+                ? <Loading/> 
+                : <LoginButton onPress={() => onLogin(email, password)}>Login</LoginButton>
+                }
             </AccountContainer>
             <BackButton onPress={() => navigation.goBack()}>Back</BackButton>
             <TerryText>Made By: Terry Su</TerryText>

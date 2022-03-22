@@ -25,7 +25,7 @@ const LoadingContainer = styled.View`
   left: 50%;
 `;
 
-const Loading = styled(ActivityIndicator)`
+const Loading = styled(ActivityIndicator)` 
   margin-left: -25px;
 `;
 

@@ -9,13 +9,14 @@ import {
         RegisterButton, 
         TerryText, 
         BackButton,
+        Loading,
         Title } from "../components/account-styles";
 
 export const RegisterScreen = ({ navigation }) => {
     
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const { onRegister, error} = useContext(AuthenticationContext);
+    const { isLoading, onRegister, error} = useContext(AuthenticationContext);
 
     return (
         <AccountBackground>
@@ -42,7 +43,10 @@ export const RegisterScreen = ({ navigation }) => {
                 {error && (
                     <ErrorText>{error}</ErrorText>
                 )}
-                <RegisterButton onPress={() => onRegister(email, password)}>Register</RegisterButton>
+                {isLoading 
+                ? <Loading/> 
+                : <RegisterButton onPress={() => onRegister(email, password)}>Register</RegisterButton>
+                }
             </AccountContainer>
             <BackButton onPress={() => navigation.goBack()}>Back</BackButton>
             <TerryText>Made By: Terry Su</TerryText>

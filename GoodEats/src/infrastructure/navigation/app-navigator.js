@@ -1,14 +1,21 @@
-import React from "react";
-import { Text } from 'react-native';
+import React, {useContext} from "react";
+import { Text, Button } from 'react-native';
 import { RestaurantsNavigator } from "./restaurant-navigator";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons, FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 import { MapScreen } from "../../features/map/screens/map-screen";
 
 const Tab = createBottomTabNavigator();
-const Settings = () => <Text>settings</Text>
+
+//temporary (testing)
+import { AuthenticationContext } from "../../services/authentication/authentication-context";
 
 export const AppNavigator = () => {
+
+    //temporary (testing)
+    const { onLogout } = useContext(AuthenticationContext);
+    const Settings = () => <Button title={'logout'} onPress={() => onLogout()}/>
+
     return (
         <Tab.Navigator
             screenOptions={

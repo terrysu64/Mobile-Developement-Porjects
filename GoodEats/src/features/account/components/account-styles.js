@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
-import { Button, TextInput } from "react-native-paper"
+import { Button, TextInput, ActivityIndicator } from "react-native-paper";
 
 export const AccountBackground = styled.ImageBackground.attrs({
     source: require("../../../../assets/account-background.jpg")
@@ -82,3 +82,10 @@ export const TerryText = styled.Text`
     font-size: ${(props) => props.theme.sizes[1]};
     font-family: ${(props) => props.theme.fonts.monospace};
 `;
+
+export const Loading = styled(ActivityIndicator).attrs({
+    color: '#e396d9',
+    animating: true,
+    size: 20,
+})``;
+
