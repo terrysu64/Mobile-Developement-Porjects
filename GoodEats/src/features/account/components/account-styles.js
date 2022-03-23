@@ -10,17 +10,17 @@ export const AccountBackground = styled.ImageBackground.attrs({
     justify-content: center;
 `;
 
-export const AccountCover = styled.View`
-    position: absolute;
-    height: 100%;
-    width: 100%
-    background-color: rgba(255, 255, 255, 0.25);
-`;
-
 export const AccountContainer = styled.View`
     padding: ${(props) => props.theme.space[4]};
     margin-top: ${(props) => props.theme.space[2]};
     background-color: rgba(255, 255, 255, 0.75);
+`;
+
+export const AccountCover = styled.View`
+    position: absolute;
+    height: 100%;
+    width: 100%
+    background-color: rgba(255, 255, 255, 0.05);
 `;
 
 export const LoginButton = styled(Button).attrs({
@@ -89,3 +89,10 @@ export const Loading = styled(ActivityIndicator).attrs({
     size: 20,
 })``;
 
+export const AnimationWrapper = styled.View`
+    width: 50%
+    height: 35%;
+    top: 5px;
+    position: absolute;
+    display: flex;
+`;
