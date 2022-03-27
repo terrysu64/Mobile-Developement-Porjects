@@ -59,6 +59,7 @@ export const AuthenticationContextProvider = ({ children }) => {
         setIsLoading(true)
         LogoutRequest()
             .then(() => {
+                console.log("User logged out:", user)
                 setIsLoading(false)
                 setUser(null)
                 setIsAuthenticated(false)
