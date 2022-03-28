@@ -20,16 +20,16 @@ const EmailText = styled.Text`
     font-size: ${(props) => props.theme.fontSizes.body};
 `;
 
-export const SettingsScreen = () => {
+export const SettingsScreen = ({ navigation }) => {
 
-    const { onLogout, user } = useContext(AuthenticationContext);
+    const { onLogout, user} = useContext(AuthenticationContext);
 
     return (
         <>
             <AvatarContainer>
                 <Avatar.Icon size={180} icon="account" backgroundColor="#e396d9"/>
             </AvatarContainer>
-            <EmailText>{user.email}</EmailText>
+            {user && <EmailText>{user.email}</EmailText>}
             <List.Section>
                 <StyledListItem
                     title="Favourites"

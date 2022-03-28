@@ -86,7 +86,7 @@ export const AuthenticationContextProvider = ({ children }) => {
         </AuthenticationContext.Provider>
     );
 };
-
+ 
   //temp firebase testing
   // const [isAuthenticated, setIsAuthenticated] = useState(false);
   // useEffect(() => {
