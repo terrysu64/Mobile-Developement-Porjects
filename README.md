@@ -2,7 +2,7 @@
 
 These are some cross-platform mobile projects that I am currently building while introducing myself to React Native as a developement framework!
 
-Todos:
+Todos (GoodEats) :
 
 1. Find useable API to replace mock restaurant data ⭐⭐⭐
 2. Update "favorites" feature to Firebase (I'm working on rn)
