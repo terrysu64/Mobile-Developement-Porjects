@@ -21,26 +21,26 @@ export const locations = {
         },
       ],
     },
-    markham: {
+    chicago: {
       results: [
         {
           geometry: {
             location: {
-              lat: 42.234323,
-              lng: -88.121432,
+              lng: -87.629799,
+              lat: 41.878113,
             },
             viewport: {
               northeast: {
-                lat: 23.234234234,
-                lng: 22.123987987,
+                lat: 41.88758823029149,
+                lng: -87.6194830697085,
               },
               southwest: {
-                lat: 42.12300982,
-                lng: 36.30293802,
+                lat: 41.88489026970849,
+                lng: -87.6221810302915,
               },
             },
           },
         },
       ],
     },
-  }; 
+  };  

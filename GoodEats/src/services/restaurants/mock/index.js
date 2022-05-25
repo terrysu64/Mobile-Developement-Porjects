@@ -1,10 +1,10 @@
 
 import toronto from './toronto.json';
-import markham from './markham.json';
+import chicago from './chicago.json';
 
 export const mocks = {
   "43.653225,-79.383186": toronto,
-  "42.234323,-88.121432": markham
+  "41.878113,-87.629799": chicago,
 };
 
 export const mockImages = [
