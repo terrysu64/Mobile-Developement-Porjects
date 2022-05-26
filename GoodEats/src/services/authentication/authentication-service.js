@@ -15,3 +15,4 @@ export const LogoutRequest = () => {
     const auth = getAuth();
     return signOut(auth)
 };
+

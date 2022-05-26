@@ -26,7 +26,6 @@ if (!getApps().length) {
   initializeApp(firebaseConfig);
 };
 
-
 //Note: StatusBar.currentHeight only exists on Android
 const SafeArea = styled(SafeAreaView)`
   height: 100%;

@@ -1,16 +1,21 @@
-import React, { createContext, useState, useEffect } from "react";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { AuthenticationContext } from "../authentication/authentication-context";
+import {getFirestore,getDoc,doc,setDoc} from 'firebase/firestore/lite'
 
 export const FavouritesContext = createContext();
 
 export const FavouritesContextProvider = ({ children }) => {
-    
+
+    const db = getFirestore()
+    const { user } = useContext(AuthenticationContext);
     const [favourites, setFavourites]= useState([]);
 
-    const saveFavourites = async (restaurant) => {
+    const saveFavourites = async () => {
         try {
-          const jsonValue = JSON.stringify(restaurant)
-          await AsyncStorage.setItem('@favourites', jsonValue)
+          await setDoc(doc(db, "favourites", user.uid), {
+            restaurants: favourites
+          });
+          console.log(favourites)
         } 
         catch (error) {
           console.log("error storing favourites", error)
@@ -18,13 +23,15 @@ export const FavouritesContextProvider = ({ children }) => {
     };
     
     useEffect(() => {
-        saveFavourites(favourites)
+        saveFavourites()
     }, [favourites]);
 
     const getFavourites = async () => {
         try {
-          const jsonValue = await AsyncStorage.getItem('@favourites')
-          setFavourites(jsonValue !== null ? JSON.parse(jsonValue) : [])
+          getDoc(doc(db, "favourites", user.uid)).then(docSnap => {
+            if (docSnap.exists()) {
+              setFavourites(docSnap.data().restaurants);
+            }})
         } 
         catch(error) {
           console.log("error loading favourites", error)

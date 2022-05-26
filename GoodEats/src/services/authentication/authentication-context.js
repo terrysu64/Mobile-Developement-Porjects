@@ -1,6 +1,7 @@
 import React, { useState, createContext } from "react";
 import { LoginRequest, RegisterRequest, LogoutRequest } from "./authentication-service";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import {getFirestore,doc,setDoc} from 'firebase/firestore/lite'
 
 export const AuthenticationContext = createContext();
 
@@ -31,7 +32,7 @@ export const AuthenticationContextProvider = ({ children }) => {
                 setUser(currUser)
                 setIsAuthenticated(true)
                 setIsLoading(false)
-                console.log("User logged in:", currUser)
+                console.log("User logged in:", currUser.user.uid)
             })
             .catch((err) => {
                 setIsLoading(false)
@@ -40,26 +41,29 @@ export const AuthenticationContextProvider = ({ children }) => {
     };
 
     const onRegister = (email, password) => {
+        const db = getFirestore()
         setIsLoading(true)
         RegisterRequest(email, password)
             .then((currUser) => {
                 setUser(currUser)
                 setIsAuthenticated(true)
+                setDoc(doc(db, "favourites", currUser.user.uid), {
+                    restaurants: []
+                });
                 setIsLoading(false)
-                console.log("User registered:", currUser)
+                console.log("User registered:", currUser.user.uid)
             })
             .catch((err) => {
                 setIsLoading(false)
                 setError(err.toString())
             })
-
     };
 
     const onLogout = () => {
         setIsLoading(true)
         LogoutRequest()
             .then(() => {
-                console.log("User logged out:", user)
+                console.log("User logged out:", user.uid)
                 setIsLoading(false)
                 setUser(null)
                 setIsAuthenticated(false)
@@ -86,23 +90,5 @@ export const AuthenticationContextProvider = ({ children }) => {
         </AuthenticationContext.Provider>
     );
 };
- 
-  //temp firebase testing
-  // const [isAuthenticated, setIsAuthenticated] = useState(false);
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     const auth = getAuth();
-  //     signInWithEmailAndPassword(auth, "terry@gmail.com", "111111")
-  //       .then((user) => {
-  //         console.log('found user', user)
-  //         setIsAuthenticated(true)
-  //       })
-  //       .catch((error) => {
-  //         console.log(error)
-  //       });
-  //   },2000)
-  // }, []);
 
-  // if (!isAuthenticated) {
-  //   return null
-  // };
+
