@@ -5,6 +5,5 @@ These are some cross-platform mobile projects that I am currently building while
 Todos (GoodEats) :
 
 1. Find useable API to replace mock restaurant data ⭐⭐⭐
-2. Update "favorites" feature to Firebase (I'm working on rn)
-3. Set up Jest with Expo and write a mock unit test.
-4. Resdesign the "settings" interface
+2. Set up Jest with Expo and write a mock unit test.
+3. Resdesign the "settings" interface
