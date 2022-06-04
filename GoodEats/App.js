@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, {useEffect} from 'react';
 import { SafeAreaView, StatusBar } from 'react-native';
 import styled from "styled-components/native";
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';

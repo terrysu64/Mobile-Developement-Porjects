@@ -15,7 +15,6 @@ export const FavouritesContextProvider = ({ children }) => {
           await setDoc(doc(db, "favourites", user.uid), {
             restaurants: favourites
           });
-          console.log(favourites)
         } 
         catch (error) {
           console.log("error storing favourites", error)
@@ -39,7 +38,7 @@ export const FavouritesContextProvider = ({ children }) => {
       };
     
     useEffect(() => {
-        getFavourites()
+      getFavourites()
     },[]);
 
     const Add = (restaurant) => {
