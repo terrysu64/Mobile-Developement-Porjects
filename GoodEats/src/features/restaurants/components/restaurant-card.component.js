@@ -13,7 +13,7 @@ const StyledCard = styled(Card)`
 
 const CardCover = styled(Card.Cover)`
     background-color: ${(props) => props.theme.colors.ui.quaternary};
-    padding: 20px;
+    padding: 20px; 
 `;
 
 const Info = styled.View`
@@ -71,7 +71,7 @@ const TypeIcon = styled.Image`
 export const RestaurantCard = ({ restaurant = {} }) => {
 
     const {
-        name = "Terry's Restaurant",
+        name = "Terry's Placeholder Restaurant",
         icon="https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
         photos = ["https://media.blogto.com/articles/20211009-1Hotel-15.jpg?w=2048&cmd=resize_then_crop&height=1365&quality=70"],
         address = '100 temp street',
@@ -86,7 +86,7 @@ export const RestaurantCard = ({ restaurant = {} }) => {
     if (restaurant.isClosedTemporarily) {
         isOpen = false
     };
-
+ 
     return (
         <StyledCard>
             <Favourite restaurant={restaurant}/> 

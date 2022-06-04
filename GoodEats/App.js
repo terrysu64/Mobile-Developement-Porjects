@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { SafeAreaView, StatusBar } from 'react-native';
 import styled from "styled-components/native";
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
@@ -12,9 +12,10 @@ import { Navigation } from './src/infrastructure/navigation';
 import { FavouritesContextProvider } from './src/services/favourites/favourites-context';
 import { AuthenticationContextProvider } from './src/services/authentication/authentication-context';
 import { initializeApp, getApps } from 'firebase/app';
+import { FIREBASE_API_KEY } from './env';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCGTYa3_q3oqlgQVH67A9rmOAotERVf32s",
+  apiKey: FIREBASE_API_KEY,
   authDomain: "goodeats-423bc.firebaseapp.com",
   projectId: "goodeats-423bc",
   storageBucket: "goodeats-423bc.appspot.com",
@@ -34,7 +35,7 @@ const SafeArea = styled(SafeAreaView)`
 
 export default function App() {
 
-  const [oswaldLoaded] = useOswald({
+  const [oswaldLoaded] = useOswald({ 
     Oswald_400Regular,
   });
 

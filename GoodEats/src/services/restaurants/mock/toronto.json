@@ -8,16 +8,6 @@
           "location": {
             "lat": 43.6465623,
             "lng": -79.374578
-          },
-          "viewport": {
-            "northeast": {
-              "lat": 43.64794098029149,
-              "lng": -79.37325551970848
-            },
-            "southwest": {
-              "lat": 43.6452430197085,
-              "lng": -79.37595348029149
-            }
           }
         },
         "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
