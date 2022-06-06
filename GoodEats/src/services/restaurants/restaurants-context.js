@@ -9,16 +9,16 @@ export const RestaurantsContextProvider = ({ children }) => {
     const [restaurants, setRestaurants] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
-    const { location } = useContext(LocationContext);
+    const { location, keyword } = useContext(LocationContext);
 
-    const retrieveRestaurants = (formattedLocation) => {
+    const retrieveRestaurants = (keyword) => {
 
         setIsLoading(true);
         setRestaurants([]);
 
         //setTimeout will be used as a callback for the async restaurantRequest function
         setTimeout(() => {
-            restaurantsRequest(formattedLocation)
+            restaurantsRequest(keyword)
                 .then(restaurantsTransform)
                 .then((result) => {
                     setIsLoading(false)
@@ -29,14 +29,12 @@ export const RestaurantsContextProvider = ({ children }) => {
                     setError(err)
                 })
         }, 1000) 
-
     };  
 
     useEffect(() => {
         console.log('location has been changed')
         if (location) {
-            const formattedLocation = `${location.lat},${location.lng}`
-            retrieveRestaurants(formattedLocation)
+            retrieveRestaurants(keyword)
         };
     }, [location]);
 

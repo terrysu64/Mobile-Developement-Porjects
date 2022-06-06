@@ -25,7 +25,7 @@ export const SearchBar= ({ isFavouritesToggled, onFavouritesToggle }) => {
             <Searchbar 
                 icon={isFavouritesToggled ? "heart" : "heart-outline"}
                 onIconPress={onFavouritesToggle}
-                placeholder="Search by Location 📍" 
+                placeholder="Search by city 📍" 
                 value={searchKeyword}
                 onSubmitEditing = {() => {search(searchKeyword)}}
                 onChangeText = {(text) => {

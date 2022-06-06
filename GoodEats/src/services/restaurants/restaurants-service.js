@@ -31,28 +31,20 @@ const convertData = (data) => {
     }
 };
 
-export const fetchData = (location) => {
-    const url = `https://api.yelp.com/v3/businesses/search?term=restaurants&location=${location}`
-    fetch(url, {
-        method: 'GET',
-        headers: {
-            Authorization: `Bearer ${YELP_API_KEY}`
-        },
-    })
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(convertData(data))
-    })
-    .catch((err) => console.log(err))
-};
-
-export const restaurantsRequest = (location) => {
-    return new Promise ((resolve,reject) => {
-        const mock = mocks[location];
-        if (!mock) {
-            reject("not found")
-        }
-        resolve(mock);
+export const restaurantsRequest = (keyword) => {
+    return new Promise ((resolve, reject) => {
+        const url = `https://api.yelp.com/v3/businesses/search?term=restaurants&location=${keyword}`
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${YELP_API_KEY}`
+            },
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            resolve(convertData(data))
+        })
+        .catch((err) => reject(`error requesting restaurants: ${err}`))
     })
 };
 
@@ -62,9 +54,8 @@ export const restaurantsTransform = ({ results = [] }) => {
         return {
             ... restaurant,
             address: restaurant.vicinity,
-            isOpen: restaurant.opening_hours && restaurant.opening_hours.open_now,
-            isClosedTemporarily: restaurant.business_status !== "OPERATIONAL", 
-            randomIndex: Math.floor(Math.random() * (6)),
+            isOpen: restaurant.opening_hours.open_now,
+            isClosedTemporarily: false
         }
     })
     return camelize(mappedResults)

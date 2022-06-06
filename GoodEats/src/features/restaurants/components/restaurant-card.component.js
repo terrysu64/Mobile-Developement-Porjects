@@ -73,11 +73,10 @@ export const RestaurantCard = ({ restaurant = {} }) => {
     const {
         name = "Terry's Placeholder Restaurant",
         icon="https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
-        photos = ["https://media.blogto.com/articles/20211009-1Hotel-15.jpg?w=2048&cmd=resize_then_crop&height=1365&quality=70"],
+        photo = "https://media.blogto.com/articles/20211009-1Hotel-15.jpg?w=2048&cmd=resize_then_crop&height=1365&quality=70",
         address = '100 temp street',
         rating = 3,
-        placeId,
-        randomIndex
+        placeId
     } = restaurant;
 
 
@@ -87,10 +86,12 @@ export const RestaurantCard = ({ restaurant = {} }) => {
         isOpen = false
     };
  
+    const noPhoto = "https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg"
+
     return (
         <StyledCard>
             <Favourite restaurant={restaurant}/> 
-            <CardCover key={name} source={{ uri: photos[randomIndex]}}/>
+            <CardCover key={name} source={{ uri: photo!=='' ? photo: noPhoto}}/>
             <Info>
                 <Title>{name}</Title>
                 <SvgContainer>
