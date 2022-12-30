@@ -60,6 +60,9 @@ export const restaurantsRequest = (keyword) => {
 
 - Feel free to create PRs and raise relevant issues in the repo!
 - Current to-do's: 
+
 i) Find useable API to source restaurant menu data ⭐ (highest importance)
+
 ii) Set up Jest with Expo and write a mock unit test.
+
 iii) Resdesign the "settings" interface
